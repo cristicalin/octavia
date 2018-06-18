@@ -78,6 +78,11 @@ def netmask_to_prefix(netmask):
     return netaddr.IPAddress(netmask).netmask_bits()
 
 
+def ip_netmask_to_cidr(ip, netmask):
+    net = netaddr.IPNetwork("{ip}/{netmask}".format(ip=ip, netmask=netmask))
+    return "{ip}/{netmask}".format(ip=net.network, netmask=net.prefixlen)
+
+
 class exception_logger(object):
     """Wrap a function and log raised exception
 

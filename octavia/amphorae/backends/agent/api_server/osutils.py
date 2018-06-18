@@ -100,6 +100,7 @@ class BaseOS(object):
                 broadcast=broadcast,
                 netmask=netmask,
                 gateway=gateway,
+                network=utils.ip_netmask_to_cidr(vip, netmask),
                 mtu=mtu,
                 vrrp_ip=vrrp_ip,
                 vrrp_ipv6=vrrp_version is 6,
